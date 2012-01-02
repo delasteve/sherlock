@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(:version => 20120102071544) do
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "whatid"
+    t.integer  "what_uid"
   end
 
 end
+

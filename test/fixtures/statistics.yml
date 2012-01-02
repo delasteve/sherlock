@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  post_count: 1
+  upload: 1
+  download: 1
+  uploaded: 1
+  seeding: 1
+
+two:
+  user_id: 1
+  post_count: 1
+  upload: 1
+  download: 1
+  uploaded: 1
+  seeding: 1
