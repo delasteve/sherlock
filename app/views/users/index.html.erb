@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>upload</th>
+    <th>download</th>
+  </tr>
+
+<% @statistics.each do |statistic| %>
+  <tr>
+    <td><%= statistic.upload %></td>
+    <td><%= statistic.download %></td>
+  </tr>
+<% end %>
+</table>
+

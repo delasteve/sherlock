@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120102071544) do
+ActiveRecord::Schema.define(:version => 20120102074803) do
+
+  create_table "statistics", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "post_count"
+    t.integer  "upload"
+    t.integer  "download"
+    t.integer  "uploaded"
+    t.integer  "seeding"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"
@@ -23,4 +34,3 @@ ActiveRecord::Schema.define(:version => 20120102071544) do
   end
 
 end
-
