@@ -1,0 +1,23 @@
+<h1 style="text-align:center;">What.CD Statistics for <%= @user.username %></h1>
+
+<table style="text-align:center" border="1" align="center">
+  <tr>
+    <th>Time</th>
+    <th>Upload</th>
+    <th>Download</th>
+    <th>Buffer</th>
+    <th>Ratio</th>
+  </tr>
+
+  <% @statistics.each do |statistic| %>
+    <tr>
+      <td><%= statistic.created_at.strftime("%m/%d/%Y %I:%M%p %Z") %></td>
+      <td><%= pretty_decimal(statistic.upload) %></td>
+      <td><%= pretty_decimal(statistic.download) %></td>
+      <td><%= pretty_decimal(statistic.upload - statistic.download) %></td>
+      <td><%= number_with_precision(statistic.upload.to_f / statistic.download, :precision => 3,
+                                                                                :strip_insignificant_zeros => true) %></td>
+    </tr>
+  <% end %>
+</table>
+

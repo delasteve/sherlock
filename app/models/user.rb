@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
                        :presence => true
   validates :password, :confirmation => true,
                        :presence => true
-  validates :what_uid,   :uniqueness => true,
+  validates :what_uid, :uniqueness => true,
                        :presence => true
 
   def self.authenticate(username, password)

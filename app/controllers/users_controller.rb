@@ -15,11 +15,24 @@ class UsersController < ApplicationController
   end
 
   def index
-    @statistics = User.find(current_user).statistics.select(:upload)
-                                                    .select(:download)
-                                                    .select(:post_count)
-                                                    .select(:uploaded)
-                                                    .select(:seeding)
+    @user = User.find(current_user)
+    @statistics = @user.statistics.select("upload, download, post_count, seeding, created_at")
+                                                    .order("created_at DESC")
+
+    respond_to do |format|
+      format.html
+      format.json  { render :json => @statistics }
+    end
+  end
+
+  def show
+    if params[:username]
+      @user = User.find_by_username(params[:username])
+      @statistics = @user.statistics.order("created_at DESC")
+    else
+      @user = User.find(params[:id])
+      @statistics = @user.statistics.order("created_at DESC")
+    end
 
     respond_to do |format|
       format.html
