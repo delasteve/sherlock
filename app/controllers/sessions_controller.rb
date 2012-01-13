@@ -1,12 +1,17 @@
 class SessionsController < ApplicationController
   def new
+    if logged_in?
+      redirect_to my_stats_path
+    else
+      @title = "Log in"
+    end
   end
 
   def create
     user = User.authenticate(params[:username], params[:password])
     if user
-      session[:user_id] = user.id
-      redirect_to users_url
+      log_in user
+      redirect_back_or user
     else
       flash.now.alert = "Invalid username or password."
       render "new"
@@ -14,8 +19,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to root_url
+    log_out
+    redirect_to root_path
   end
 end
 

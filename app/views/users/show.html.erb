@@ -1,4 +1,22 @@
-<% Time.zone = "Eastern Time (US & Canada)" %>
+<h1 style="text-align:center;">What.CD Statistics for <%= @user.username %></h1>
 
-<%= render :partial => "stats_table" %>
+<table style="text-align:center" border="1" align="center">
+  <tr>
+    <th>Time</th>
+    <th>Upload</th>
+    <th>Downloaded</th>
+    <th>Buffered</th>
+    <th>Ratio</th>
+  </tr>
+
+  <% @statistics.each do |statistic| %>
+    <tr>
+      <td><%= statistic.created_at.strftime("%m/%d/%Y %I:%M%p %Z") %></td>
+      <td><%= pretty_decimal(statistic.uploaded) %></td>
+      <td><%= pretty_decimal(statistic.downloaded) %></td>
+      <td><%= pretty_decimal(statistic.buffer) %></td>
+      <td><%= pretty_ratio(statistic.ratio) %></td>
+    </tr>
+  <% end %>
+</table>
 

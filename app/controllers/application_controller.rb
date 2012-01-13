@@ -1,12 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  include SessionsHelper
 
-  helper_method :current_user
+  before_filter :set_user_time_zone
 
   private
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  def set_user_time_zone
+    Time.zone = "Eastern Time (US & Canada)" if logged_in?
   end
 end
 

@@ -15,11 +15,15 @@ ActiveRecord::Schema.define(:version => 20120102074803) do
 
   create_table "statistics", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "post_count"
-    t.integer  "upload"
-    t.integer  "download"
     t.integer  "uploaded"
+    t.integer  "downloaded"
     t.integer  "seeding"
+    t.integer  "leeching"
+    t.integer  "posts"
+    t.integer  "uploads"
+    t.integer  "snatched"
+    t.decimal  "ratio"
+    t.integer  "buffer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,9 +32,9 @@ ActiveRecord::Schema.define(:version => 20120102074803) do
     t.string   "username"
     t.string   "password_hash"
     t.string   "password_salt"
+    t.integer  "what_uid"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "what_uid"
   end
 
 end
