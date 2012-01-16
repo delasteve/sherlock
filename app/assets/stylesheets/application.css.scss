@@ -1,8 +1,75 @@
 /*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  *= require_tree .
 */
+
+$sherlockblue: #3879b5;
+$headerboxpack: end;
+$headerboxalign: center;
+
+body {
+  font: 11px Helvetica, Arial, sans-serif;
+}
+
+#wrapper {
+  margin: 0 auto;
+  width: 940px;
+}
+
+header {
+  overflow: hidden;
+  background: $sherlockblue;
+  height: 36px;
+  color: #fff;
+  font-size: 12px;
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .log_in{
+    height: 100%;
+    padding-right: 10px;
+    /* Firefox */
+    display: -moz-box;
+    -moz-box-pack: $headerboxpack;
+    -moz-box-align: $headerboxalign;
+
+    /* Safari and Chrome */
+    display: -webkit-box;
+    -webkit-box-pack: $headerboxpack;
+    -webkit-box-align: $headerboxalign;
+
+    /* W3C */
+    display: box;
+    box-pack: $headerboxpack;
+    box-align: $headerboxalign;
+  }
+
+  #logo {
+    height: 100%;
+    float: left;
+    padding-top: 5px;
+    padding-left: 10px;
+  }
+}
+
+nav {
+  height: 30px;
+background-image: linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
+background-image: -o-linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
+background-image: -moz-linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
+background-image: -webkit-linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
+background-image: -ms-linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.29, rgb(232,232,232)),
+	color-stop(0.59, rgb(240,240,240))
+);
+}
 

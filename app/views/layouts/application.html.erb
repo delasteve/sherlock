@@ -8,26 +8,29 @@
   </head>
 
   <body>
-    <header>
-      <div>
-        <p>
-        <% if logged_in? %>
-          Logged in as [<%= link_to current_user.username, my_stats_path %>]
-          [<%= link_to "Log out", log_out_path %>]
-        <% else %>
-          [<%= link_to "Log in", log_in_path %>]
-        <% end %>
-        </p>
-      </div>
-    </header>
+      <header role="banner">
+        <div id="logo"><%= image_tag "logo.gif" %></div>
+        <div class="log_in">
+          <% if logged_in? %>
+            Logged in as [<%= link_to current_user.username, my_stats_path %>]
+            [<%= link_to "Logout", log_out_path %>]
+          <% else %>
+            [<%= link_to "Login", log_in_path %>]
+          <% end %>
+        <div>
+      </header>
+
+      <nav role="navigation">
+      </nav>
 
 
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
+    <div id="wrapper">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
 
-    <%= yield %>
-
+      <%= yield %>
+    <div>
   </body>
 </html>
 

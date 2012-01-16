@@ -1,4 +1,4 @@
-<h1 style="text-align:center;">What.CD Statistics for <%= @user.username %></h1>
+<h1>What.CD Statistics for <%= link_to @user.username, { :controller => "users", :action => "show", :id => @user.id } %></h1>
 
 <table style="text-align:center" border="1" align="center">
   <tr>

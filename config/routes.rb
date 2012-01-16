@@ -9,6 +9,6 @@ Sherlock::Application.routes.draw do
 
   match ':username' => 'users#show'
 
-  root :to => "sessions#new"
+  root :to => "users#index"
 end
 
