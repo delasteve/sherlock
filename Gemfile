@@ -5,6 +5,10 @@ gem 'sqlite3'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'jquery-rails'
 
+# Needed if you receive a Javascript error
+#gem 'execjs'
+#gem 'therubyracer'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
