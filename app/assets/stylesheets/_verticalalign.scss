@@ -1,0 +1,16 @@
+@mixin verticalalign($pack, $align) {
+  height: 100%;
+
+  display: -moz-box;
+  -moz-box-pack: $pack;
+  -moz-box-align: $align;
+
+  display: -webkit-box;
+  -webkit-box-pack: $pack;
+  -webkit-box-align: $align;
+
+  display: box;
+  box-pack: $pack;
+  box-align: $align;
+}
+

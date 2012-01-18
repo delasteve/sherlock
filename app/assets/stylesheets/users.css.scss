@@ -1,5 +1,61 @@
-table {
-  text-align: center;
-  border-width: 1px;
+@import "_verticalalign";
+@import "_colorscheme";
+
+#statisticsheader {
+  @include verticalalign(center, center);
+  border-bottom: 1px solid #ebebeb;
+  padding: 20px 0;
+
+  h1 {
+    color: #999;
+    font: {
+      size: 2em;
+      weight: bold;
+    }
+    a {
+      color: $sherlockblue;
+      text-decoration: none;
+    }
+  }
+}
+
+#overallstatistics{
+/*
+  This will be redone.
+*/
+  height: 36px;
+  #tempdata{
+    @include verticalalign(center, center);
+  }
+}
+
+#statisticstable {
+  table {
+    text-align: center;
+    border: {
+      width: 1px;
+      collapse: collapse;
+    }
+    width: 100%;
+    table-layout:fixed;
+    tr:hover td {
+      background: #f3f3f3; color: #000;
+    }
+
+    tr, th {
+      border: {
+        top-width: 1px;
+        top-style: solid;
+        top-color: #ebebeb;
+        right: 0;
+        left: 0;
+      }
+      padding: 5px;
+    }
+
+    td {
+      padding: 4px;
+    }
+  }
 }
 

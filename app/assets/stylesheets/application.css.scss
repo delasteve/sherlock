@@ -3,18 +3,19 @@
  *= require_tree .
 */
 
-$sherlockblue: #3879b5;
-$headerboxpack: end;
-$headerboxalign: center;
+@import "_verticalalign";
+@import "_colorscheme";
 
 body {
   font: 11px Helvetica, Arial, sans-serif;
+
+  #wrapper {
+    margin: 0 auto;
+    width: 940px;
+  }
 }
 
-#wrapper {
-  margin: 0 auto;
-  width: 940px;
-}
+
 
 header {
   overflow: hidden;
@@ -31,45 +32,42 @@ header {
 
   .log_in{
     height: 100%;
-    padding-right: 10px;
-    /* Firefox */
-    display: -moz-box;
-    -moz-box-pack: $headerboxpack;
-    -moz-box-align: $headerboxalign;
+    margin: {
+      right: 10px;
+    }
 
-    /* Safari and Chrome */
-    display: -webkit-box;
-    -webkit-box-pack: $headerboxpack;
-    -webkit-box-align: $headerboxalign;
-
-    /* W3C */
-    display: box;
-    box-pack: $headerboxpack;
-    box-align: $headerboxalign;
+    @include verticalalign(end, center);
   }
 
   #logo {
     height: 100%;
     float: left;
-    padding-top: 5px;
-    padding-left: 10px;
+    margin: {
+      top: 5px;
+      left: 10px;
+    }
   }
 }
 
 nav {
   height: 30px;
-background-image: linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
-background-image: -o-linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
-background-image: -moz-linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
-background-image: -webkit-linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
-background-image: -ms-linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
+  background-image: linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
+  background-image: -o-linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
+  background-image: -moz-linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
+  background-image: -webkit-linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
+  background-image: -ms-linear-gradient(bottom, rgb(232,232,232) 29%, rgb(240,240,240) 59%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.29, rgb(232,232,232)), color-stop(0.59, rgb(240,240,240)));
 
-background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.29, rgb(232,232,232)),
-	color-stop(0.59, rgb(240,240,240))
-);
+  /*ul {
+    @include verticalalign(start, center);
+    li {
+      display: inline;
+      list-style-type: none;
+      border: 1px solid #d7d7d7;
+      a {
+        color: #3777b2;
+      }
+    }
+  }*/
 }
 

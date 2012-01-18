@@ -9,7 +9,7 @@
 
   <body>
       <header role="banner">
-        <div id="logo"><%= image_tag "logo.gif" %></div>
+        <div id="logo"><%= link_to logo, root_path %></div>
         <div class="log_in">
           <% if logged_in? %>
             Logged in as [<%= link_to current_user.username, my_stats_path %>]
@@ -21,6 +21,11 @@
       </header>
 
       <nav role="navigation">
+        <!--<ul id="navigation">
+          <li><%= link_to 'Top 10', '#'%></li>
+          <li><%= link_to 'Preferences', '#'%></li>
+          <li><%= link_to 'Graph Manager', '#'%></li>
+        </ul>-->
       </nav>
 
 

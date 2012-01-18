@@ -1,22 +1,39 @@
-<h1>What.CD Statistics for <%= link_to @user.username, { :controller => "users", :action => "show", :id => @user.id } %></h1>
+<div id="statisticsheader">
+  <h1>
+    What.CD Statistics for <%= link_to @user.username, { :controller => "users", :action => "show", :id => @user.id } %>
+  </h1>
+</div>
 
-<table style="text-align:center" border="1" align="center">
-  <tr>
-    <th>Time</th>
-    <th>Upload</th>
-    <th>Downloaded</th>
-    <th>Buffered</th>
-    <th>Ratio</th>
-  </tr>
+<div id="overallstatistics">
+  <!-- This will be removed and replaced with javascript -->
+  <p id="tempdata"><%= pretty_decimal(@statistics.last.uploaded) %> |
+  <%= pretty_decimal(@statistics.last.downloaded) %> |
+  <%= pretty_decimal(@statistics.last.buffer) %> |
+  <%= pretty_ratio(@statistics.last.ratio) %></p>
+  <!-- End temp data-->
+</div>
 
-  <% @statistics.each do |statistic| %>
-    <tr>
-      <td><%= statistic.created_at.strftime("%m/%d/%Y %I:%M%p %Z") %></td>
-      <td><%= pretty_decimal(statistic.uploaded) %></td>
-      <td><%= pretty_decimal(statistic.downloaded) %></td>
-      <td><%= pretty_decimal(statistic.buffer) %></td>
-      <td><%= pretty_ratio(statistic.ratio) %></td>
-    </tr>
-  <% end %>
-</table>
+<div id="statisticstable">
+  <table>
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Upload</th>
+        <th>Downloaded</th>
+        <th>Buffered</th>
+        <th>Ratio</th>
+      </tr>
+    </thead>
+
+    <% @statistics.each do |statistic| %>
+      <tr>
+        <td><%= statistic.created_at.strftime("%m/%d/%Y %l:%M%p") %></td>
+        <td><%= pretty_decimal(statistic.uploaded) %></td>
+        <td><%= pretty_decimal(statistic.downloaded) %></td>
+        <td><%= pretty_decimal(statistic.buffer) %></td>
+        <td><%= pretty_ratio(statistic.ratio) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
 
