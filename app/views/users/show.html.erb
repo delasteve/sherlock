@@ -6,10 +6,10 @@
 
 <div id="overallstatistics">
   <!-- This will be removed and replaced with javascript -->
-  <p id="tempdata"><%= pretty_decimal(@statistics.last.uploaded) %> |
-  <%= pretty_decimal(@statistics.last.downloaded) %> |
-  <%= pretty_decimal(@statistics.last.buffer) %> |
-  <%= pretty_ratio(@statistics.last.ratio) %></p>
+  <p id="tempdata"><%= pretty_decimal(@user.statistics.last.uploaded) %> |
+  <%= pretty_decimal(@user.statistics.last.downloaded) %> |
+  <%= pretty_decimal(@user.statistics.last.buffer) %> |
+  <%= pretty_ratio(@user.statistics.last.ratio) %></p>
   <!-- End temp data-->
 </div>
 
@@ -18,20 +18,20 @@
     <thead>
       <tr>
         <th>Time</th>
-        <th>Upload</th>
+        <th>Uploaded</th>
         <th>Downloaded</th>
-        <th>Buffered</th>
+        <th>Buffer</th>
         <th>Ratio</th>
       </tr>
     </thead>
 
-    <% @statistics.each do |statistic| %>
+    <% @user.statistics.each do |statistic| %>
       <tr>
-        <td><%= statistic.created_at.strftime("%m/%d/%Y %l:%M%p") %></td>
-        <td><%= pretty_decimal(statistic.uploaded) %></td>
-        <td><%= pretty_decimal(statistic.downloaded) %></td>
-        <td><%= pretty_decimal(statistic.buffer) %></td>
-        <td><%= pretty_ratio(statistic.ratio) %></td>
+        <td><%= statistic.created_at.strftime("%b %d %I:%M%p") %></td>
+        <td><%= pretty_decimal(statistic.hourly_statistic.change_in_uploaded) %> (<%= pretty_decimal(statistic.uploaded) %>)</td>
+        <td><%= pretty_decimal(statistic.hourly_statistic.change_in_downloaded) %> (<%= pretty_decimal(statistic.downloaded) %>)</td>
+        <td><%= pretty_decimal(statistic.hourly_statistic.change_in_buffer) %> (<%= pretty_decimal(statistic.buffer) %>)</td>
+        <td><%= pretty_ratio(statistic.hourly_statistic.change_in_ratio) %> (<%= pretty_ratio(statistic.ratio) %>)</td>
       </tr>
     <% end %>
   </table>

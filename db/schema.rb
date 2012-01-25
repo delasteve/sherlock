@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120102074803) do
+ActiveRecord::Schema.define(:version => 20120119144217) do
+
+  create_table "hourly_statistics", :force => true do |t|
+    t.integer  "statistic_id"
+    t.integer  "change_in_uploaded"
+    t.integer  "change_in_downloaded"
+    t.integer  "change_in_uploads"
+    t.integer  "change_in_snatched"
+    t.integer  "change_in_posts"
+    t.integer  "change_in_seeding"
+    t.integer  "change_in_leeching"
+    t.integer  "change_in_buffer"
+    t.decimal  "change_in_ratio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "statistics", :force => true do |t|
     t.integer  "user_id"

@@ -1,0 +1,18 @@
+development:
+  base_url: http://www.example.com
+  username: username
+  password: password
+  auth_key: sample_auth_key
+
+test:
+  base_url: http://www.example.com
+  username: username
+  password: password
+  auth_key: sample_auth_key
+
+production:
+  base_url: http://www.example.com
+  username: username
+  password: password
+  auth_key: sample_auth_key
+

@@ -12,12 +12,12 @@
 #  uploads    :integer
 #  snatched   :integer
 #  ratio      :decimal(, )
-#  buffer     :decimal(, )
+#  buffer     :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 class Statistic < ActiveRecord::Base
-  belongs_to :user
+  has_one :hourly_statistic
 end
 

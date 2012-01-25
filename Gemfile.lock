@@ -1,87 +1,141 @@
 GIT
+  remote: git://github.com/caribio/mechanize.git
+  revision: 602a453f25c376681317e1f1af7229d39ccfff3d
+  specs:
+    mechanize (2.1.1)
+      domain_name (~> 0.5, >= 0.5.1)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.3, >= 2.3.2)
+      nokogiri (~> 1.4)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (~> 0.0, >= 0.0.9)
+
+GIT
   remote: git://github.com/ctran/annotate_models.git
   revision: 032565653b98e0790ddd8a070579566eb60a850c
   specs:
     annotate (2.4.1.beta1)
 
+GIT
+  remote: git://github.com/rspec/rspec-core.git
+  revision: 8e8fb2b3af4422327e676d4e1c344268357f3536
+  specs:
+    rspec-core (2.8.0)
+
+GIT
+  remote: git://github.com/rspec/rspec-expectations.git
+  revision: 65d3c4dc000ac8192b8bcf9fc2ee96aabcd72586
+  specs:
+    rspec-expectations (2.8.0)
+      diff-lcs (~> 1.1.3)
+
+GIT
+  remote: git://github.com/rspec/rspec-mocks.git
+  revision: ea8cc1fd97e770e448f73c7496cfb6bf8933b4f6
+  specs:
+    rspec-mocks (2.8.0)
+
+GIT
+  remote: git://github.com/rspec/rspec-rails.git
+  revision: 53644fc41991a0a1abd04b9c45aaf53ca1706755
+  specs:
+    rspec-rails (2.8.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec (~> 2.8.0)
+
+GIT
+  remote: git://github.com/rspec/rspec.git
+  revision: a1ff00fb10c2a4788248131405907d52f80b82e5
+  specs:
+    rspec (2.8.0)
+      rspec-core (~> 2.8.0)
+      rspec-expectations (~> 2.8.0)
+      rspec-mocks (~> 2.8.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
-    actionmailer (3.1.3)
-      actionpack (= 3.1.3)
-      mail (~> 2.3.0)
-    actionpack (3.1.3)
-      activemodel (= 3.1.3)
-      activesupport (= 3.1.3)
+    actionmailer (3.2.0)
+      actionpack (= 3.2.0)
+      mail (~> 2.4.0)
+    actionpack (3.2.0)
+      activemodel (= 3.2.0)
+      activesupport (= 3.2.0)
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
-      i18n (~> 0.6)
-      rack (~> 1.3.5)
+      journey (~> 1.0.0)
+      rack (~> 1.4.0)
       rack-cache (~> 1.1)
-      rack-mount (~> 0.8.2)
       rack-test (~> 0.6.1)
-      sprockets (~> 2.0.3)
-    activemodel (3.1.3)
-      activesupport (= 3.1.3)
+      sprockets (~> 2.1.2)
+    activemodel (3.2.0)
+      activesupport (= 3.2.0)
       builder (~> 3.0.0)
-      i18n (~> 0.6)
-    activerecord (3.1.3)
-      activemodel (= 3.1.3)
-      activesupport (= 3.1.3)
-      arel (~> 2.2.1)
+    activerecord (3.2.0)
+      activemodel (= 3.2.0)
+      activesupport (= 3.2.0)
+      arel (~> 3.0.0)
       tzinfo (~> 0.3.29)
-    activeresource (3.1.3)
-      activemodel (= 3.1.3)
-      activesupport (= 3.1.3)
-    activesupport (3.1.3)
+    activeresource (3.2.0)
+      activemodel (= 3.2.0)
+      activesupport (= 3.2.0)
+    activesupport (3.2.0)
+      i18n (~> 0.6)
       multi_json (~> 1.0)
-    arel (2.2.1)
+    arel (3.0.0)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
-    coffee-rails (3.1.1)
+    coffee-rails (3.2.1)
       coffee-script (>= 2.2.0)
-      railties (~> 3.1.0)
+      railties (~> 3.2.0.beta)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
     diff-lcs (1.1.3)
+    domain_name (0.5.2)
+      unf (~> 0.0.3)
     erubis (2.7.0)
-    execjs (1.2.13)
+    execjs (1.3.0)
       multi_json (~> 1.0)
     hike (1.2.1)
     i18n (0.6.0)
-    jquery-rails (1.0.19)
-      railties (~> 3.0)
+    journey (1.0.0)
+    jquery-rails (2.0.0)
+      railties (>= 3.2.0.beta, < 5.0)
       thor (~> 0.14)
     json (1.6.5)
-    mail (2.3.0)
+    mail (2.4.1)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.17.2)
     multi_json (1.0.4)
+    net-http-digest_auth (1.2)
+    net-http-persistent (2.3.3)
+    nokogiri (1.5.0)
+    ntlm-http (0.1.1)
     polyglot (0.3.3)
-    rack (1.3.6)
+    rack (1.4.1)
     rack-cache (1.1)
       rack (>= 0.4)
-    rack-mount (0.8.3)
-      rack (>= 1.0.0)
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
-    rails (3.1.3)
-      actionmailer (= 3.1.3)
-      actionpack (= 3.1.3)
-      activerecord (= 3.1.3)
-      activeresource (= 3.1.3)
-      activesupport (= 3.1.3)
+    rails (3.2.0)
+      actionmailer (= 3.2.0)
+      actionpack (= 3.2.0)
+      activerecord (= 3.2.0)
+      activeresource (= 3.2.0)
+      activesupport (= 3.2.0)
       bundler (~> 1.0)
-      railties (= 3.1.3)
-    railties (3.1.3)
-      actionpack (= 3.1.3)
-      activesupport (= 3.1.3)
+      railties (= 3.2.0)
+    railties (3.2.0)
+      actionpack (= 3.2.0)
+      activesupport (= 3.2.0)
       rack-ssl (~> 1.3.2)
       rake (>= 0.8.7)
       rdoc (~> 3.4)
@@ -89,21 +143,12 @@ GEM
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
-    rspec (2.8.0)
-      rspec-core (~> 2.8.0)
-      rspec-expectations (~> 2.8.0)
-      rspec-mocks (~> 2.8.0)
-    rspec-core (2.8.0)
-    rspec-expectations (2.8.0)
-      diff-lcs (~> 1.1.2)
-    rspec-mocks (2.8.0)
     sass (3.1.12)
-    sass-rails (3.1.5)
-      actionpack (~> 3.1.0)
-      railties (~> 3.1.0)
-      sass (~> 3.1.10)
-      tilt (~> 1.3.2)
-    sprockets (2.0.3)
+    sass-rails (3.2.3)
+      railties (~> 3.2.0.beta)
+      sass (>= 3.1.10)
+      tilt (~> 1.3)
+    sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
@@ -117,6 +162,10 @@ GEM
     uglifier (1.2.2)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    unf (0.0.4)
+      unf_ext
+    unf_ext (0.0.4)
+    webrobots (0.0.13)
 
 PLATFORMS
   ruby
@@ -124,10 +173,15 @@ PLATFORMS
 DEPENDENCIES
   annotate!
   bcrypt-ruby
-  coffee-rails (~> 3.1.1)
+  coffee-rails (~> 3.2.1)
   jquery-rails
-  rails (= 3.1.3)
-  rspec
-  sass-rails (~> 3.1.5)
+  mechanize!
+  rails (= 3.2.0)
+  rspec!
+  rspec-core!
+  rspec-expectations!
+  rspec-mocks!
+  rspec-rails!
+  sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)

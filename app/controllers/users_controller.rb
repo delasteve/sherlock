@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      @user.get_initial_statistics
       redirect_to root_url
     else
       render "new"
@@ -15,29 +16,27 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = User.find(current_user)
+    @user = User.includes(:statistics => :hourly_statistic).find(current_user)
     @title = @user.username + "'s statistics"
-    @statistics = @user.statistics.order("created_at DESC")
 
     respond_to do |format|
       format.html { render "show" }
-      format.json { render :json => @statistics }
+      format.json { render :json => @user.statistics }
     end
   end
 
   def show
     if params[:username]
-      @user = User.find_by_username(params[:username])
+      @user = User.includes(:statistics => :hourly_statistic).find_by_username(params[:username])
     else
-      @user = User.find(params[:id])
+      @user = User.includes(:statistics => :hourly_statistic).find(params[:id])
     end
 
-    @statistics = @user.statistics.order("created_at DESC")
     @title = @user.username + "'s statistics"
 
     respond_to do |format|
       format.html
-      format.json { render :json => @statistics }
+      format.json { render :json => @user.statistics }
     end
   end
 end
