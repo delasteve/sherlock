@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      @user.get_initial_statistics
       redirect_to root_url
     else
       render "new"

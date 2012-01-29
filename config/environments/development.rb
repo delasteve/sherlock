@@ -29,5 +29,6 @@ Sherlock::Application.configure do
   config.assets.debug = true
 
   config.force_ssl = false
+
 end
 
