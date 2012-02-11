@@ -1,3 +1,4 @@
+<% require 'csv' %>
 <div id="statisticsheader">
   <h1>
     What.CD Statistics for <%= link_to @user.username, { :controller => "users", :action => "show", :id => @user.id } %>
@@ -35,4 +36,90 @@
     <% end %>
   </table>
 </div>
+
+<div class="graphs">
+  <h1>Hourly Upload and Download</h1>
+  <div id="hourly_uploaded_and_downloaded" class="graph">
+  </div>
+  <h1>Upload and Download Total</h1>
+  <div id="total_uploaded_and_downloaded" class="graph">
+  </div>
+  <h1>Buffer</h1>
+  <div id="total_buffer" class="graph">
+  </div>
+  <h1>Ratio</h1>
+  <div id="total_ratio" class="graph">
+  </div>
+</div>
+
+<script type="text/javascript">
+  var hourly_uploaded_and_downloaded_line = "date, uploaded, downloaded\n" +
+              <%= make_dygraph_statistics @user.statistics.map { |s| [s.created_at.strftime('%Y/%m/%d %H:%M'),
+                                                                      s.hourly_statistic.change_in_uploaded,
+                                                                      s.hourly_statistic.change_in_downloaded].to_csv } %>;
+
+  var total_uploaded_and_downloaded_line = "date, uploaded, downloaded\n" +
+              <%= make_dygraph_statistics @user.statistics.map { |s| [s.created_at.strftime('%Y/%m/%d %H:%M'),
+                                                                      s.uploaded, s.downloaded].to_csv } %>;
+  var total_buffer_line = "date, buffer\n" +
+              <%= make_dygraph_statistics @user.statistics.map { |s| [s.created_at.strftime('%Y/%m/%d %H:%M'),
+                                                                      s.buffer].to_csv } %>;
+  var total_ratio_line = "date, ratio\n" +
+              <%= make_dygraph_statistics @user.statistics.map { |s| [s.created_at.strftime('%Y/%m/%d %H:%M'),
+                                                                      s.ratio].to_csv } %>;
+
+  $(document).ready(function(){
+    hourly_uploaded_and_downloaded_per_hour = new Dygraph(document.getElementById("hourly_uploaded_and_downloaded"),
+                                                          hourly_uploaded_and_downloaded_line,
+    {
+      labelsKMG2:true,
+      yValueFormatter: formatValue,
+      colors:['#ca8080', '#6C8ABD'],
+      labelsSeparateLines:true,
+      labelsDivStyles:{'background':'transparent'},
+      fillGraph: true,
+      drawPoints: true,
+      gridLineColor: '#ccc',
+    }
+    );
+
+    total_uploaded_and_downloaded_per_hour = new Dygraph(document.getElementById("total_uploaded_and_downloaded"),
+                                                         total_uploaded_and_downloaded_line,
+    {
+      labelsKMG2:true,
+      yValueFormatter: formatValue,
+      colors:['#ca8080', '#6C8ABD'],
+      labelsSeparateLines:true,
+      labelsDivStyles:{'background':'transparent'},
+      fillGraph: true,
+      drawPoints: true,
+      gridLineColor: '#ccc',
+    }
+    );
+
+    total_buffer = new Dygraph(document.getElementById("total_buffer"), total_buffer_line,
+    {
+      labelsKMG2:true,
+      yValueFormatter: formatValue,
+      colors:['#88CA97'],
+      labelsSeparateLines:true,
+      labelsDivStyles:{'background':'transparent'},
+      fillGraph: true,
+      drawPoints: true,
+      gridLineColor: '#ccc',
+    }
+    );
+
+    total_ratio = new Dygraph(document.getElementById("total_ratio"), total_ratio_line,
+    {
+      colors:['#CA9E6B'],
+      labelsSeparateLines:true,
+      labelsDivStyles:{'background':'transparent'},
+      fillGraph: true,
+      drawPoints: true,
+      gridLineColor: '#ccc',
+    }
+    );
+  })
+</script>
 

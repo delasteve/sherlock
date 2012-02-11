@@ -4,7 +4,7 @@
 #statisticsheader {
   @include verticalalign(center, center);
   border-bottom: 1px solid #ebebeb;
-  padding: 20px 0;
+  padding: 20px;
 
   h1 {
     color: #999;
@@ -31,6 +31,7 @@
 
 #statisticstable {
   table {
+    font-size: 12px;
     text-align: center;
     border: {
       width: 1px;
@@ -56,6 +57,26 @@
     td {
       padding: 4px;
     }
+  }
+}
+
+.graphs {
+  margin: 50px auto;
+  h1 {
+    color: #999;
+    font: {
+      size: 1em;
+      weight: bold;
+    }
+    padding: {
+      bottom: 3px;
+    }
+    border-bottom: 1px solid #ebebeb;
+  }
+  .graph {
+    height: 250px;
+    width: 850px;
+    margin: 20px auto;
   }
 }
 

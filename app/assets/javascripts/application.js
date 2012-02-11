@@ -7,3 +7,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+var suffixes = ['B', 'kB', 'MB', 'GB', 'TB'];
+function round(num, places) {
+  var shift = Math.pow(10, places);
+  return Math.round(num * shift)/shift;
+};
+
+function formatValue(v) {
+  if (v < 1000)
+    return v;
+
+  var magnitude = Math.floor(String(Math.floor(v)).length / 3);
+  if (magnitude > suffixes.length - 1)
+    magnitude = suffixes.length - 1;
+  return String(round(v / Math.pow(10, magnitude * 3), 2)) +
+    suffixes[magnitude];
+}
+
