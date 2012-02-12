@@ -6,6 +6,19 @@ class StatisticObserver < ActiveRecord::Observer
 
     last_hours_statistics = Statistic.order("created_at DESC").find_by_user_id(statistic.user_id)
 
+    if last_hours_statistics.nil?
+      last_hours_statistics = Statistic.new :uploaded => 0,
+                                            :downloaded => 0,
+                                            :seeding => 0,
+                                            :leeching => 0,
+                                            :posts => 0,
+                                            :uploads => 0,
+                                            :snatched => 0,
+                                            :ratio => 0.0,
+                                            :buffer => 0
+    end
+
+
     statistic.create_hourly_statistic(:change_in_uploaded => do_calculation(statistic.uploaded, last_hours_statistics.uploaded),
                                       :change_in_downloaded => do_calculation(statistic.downloaded, last_hours_statistics.downloaded),
                                       :change_in_uploads => do_calculation(statistic.uploads, last_hours_statistics.uploads),

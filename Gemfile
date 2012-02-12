@@ -4,7 +4,7 @@ gem 'rails',                '3.2.0'
 gem 'sqlite3'
 gem 'bcrypt-ruby',          :require => 'bcrypt'
 gem 'jquery-rails'
-gem 'mechanize',            :git => 'git://github.com/caribio/mechanize.git'
+gem 'mechanize'
 
 group :assets do
   gem 'sass-rails',         '~> 3.2.3'
